@@ -17,7 +17,7 @@ Firefox add-on. Quickly jump to a tab that is making noise. Convenient if you ha
 ## Usage
 Right-click on any browser page or a tab (Firefox only), and choose the corresponding action from the "Jump to Audible Tabs" context menu:
 
-IMAGE HERE
+![Example image of the context menu](https://user-images.githubusercontent.com/6595066/234595280-1a239852-5c34-4db2-a8c3-8a4152e7c33f.png)
 
 The context menu only appears when there are tabs playing audio, and/or tabs that are muted.
 

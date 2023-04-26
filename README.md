@@ -12,7 +12,7 @@ Firefox add-on. Quickly jump to a tab that is making noise. Convenient if you ha
 ### Firefox
 * Download the add-on [from the AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-audible-tabs/)
 ### Chrome/Chromium
-* Currently unsupported, but if you are a developer you may be able to load it manually by following [the dev docs](https://developer.chrome.com/docs/extensions/), and substituting Chromium specific calls with Polyfill.
+* [Currently unsupported](https://github.com/Rainyan/jump-to-audible-tabs/issues/1), but if you are a developer you may be able to load it manually by following [the dev docs](https://developer.chrome.com/docs/extensions/), and substituting Chromium specific calls with Polyfill.
 
 ## Usage
 Right-click on any browser page or a tab (Firefox only), and choose the corresponding action from the "Jump to Audible Tabs" context menu:

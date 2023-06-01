@@ -8,6 +8,9 @@ Firefox add-on. Quickly jump to a tab that is making noise. Convenient if you ha
 * Mute all tabs that are making noise
 * Jump to a tab that is muted
 
+## Bug reports/feature requests
+* Feel free to [open a new issue](https://github.com/Rainyan/jump-to-audible-tabs/issues)!
+
 ## Installation
 ### Firefox
 * Download the add-on [from the AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-audible-tabs/)

@@ -212,13 +212,12 @@ function populateMenu() {
   });
 }
 
-browser.runtime.onInstalled.addListener(() => {
+// As of writing this, only Firefox supports the "tab" context,
+// so we're testing if the context works in our environment,
+// and only adding it to our menu context if so.
+function checkContextCompat()
+{
   let promises = [];
-  // As of writing this (2022/12), only Firefox supports the "tab" context,
-  // so we're testing if the context works in our environment,
-  // and only adding it to our menu context if so.
-  //
-  // TODO: could use the .catch chain syntax here(?)
   const test_contexts = ["tab"];
   for (const context of test_contexts) {
     try {
@@ -265,7 +264,9 @@ browser.runtime.onInstalled.addListener(() => {
         .then(() => populateMenu());
     });
   });
-});
+}
+browser.runtime.onInstalled.addListener(checkContextCompat);
+browser.runtime.onStartup.addListener(checkContextCompat);
 
 function updateAudibleTab(tab) {
   // devtool tabs etc. may have the id 0, at least on Firefox

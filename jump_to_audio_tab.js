@@ -215,8 +215,7 @@ function populateMenu() {
 // As of writing this, only Firefox supports the "tab" context,
 // so we're testing if the context works in our environment,
 // and only adding it to our menu context if so.
-function checkContextCompat()
-{
+function checkContextCompat() {
   let promises = [];
   const test_contexts = ["tab"];
   for (const context of test_contexts) {

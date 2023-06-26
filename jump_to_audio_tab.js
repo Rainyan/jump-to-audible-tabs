@@ -212,9 +212,9 @@ function populateMenu() {
   });
 }
 
-// As of writing this, only Firefox supports the "tab" context,
-// so we're testing if the context works in our environment,
-// and only adding it to our menu context if so.
+// As of writing this (2022/12), only Firefox supports the "tab" context,
+// so we're testing if the context works in our environment, and only adding
+// it to our menu context if so.
 function checkContextCompat() {
   let promises = [];
   const test_contexts = ["tab"];

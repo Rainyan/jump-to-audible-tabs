@@ -34,3 +34,4 @@ The context menu only appears when there are tabs playing audio, and/or tabs tha
 ## Contribution/dev stuff
 * PRs welcome (please open an issue/discussion before submitting any substantial changes)
 * Currently using Manifest v2
+* Code style must adhere to [Prettier](https://prettier.io/) formatting. If you don't wanna bother with installing any tooling for it, just be sure to run your final submission code through the [web playground](https://prettier.io/playground/) in order to pass the tests for your PR.

@@ -76,7 +76,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
         promises.push(
           browser.tabs.update(currentTab.id, {
             active: false,
-          })
+          }),
         );
       }
 
@@ -226,7 +226,7 @@ function checkContextCompat() {
           id: `${EXT_TAB_ID}placeholder`,
           title: "Test menu support",
           contexts: [context],
-        })
+        }),
       );
       CONTEXTS.push(context);
     } catch (error) {

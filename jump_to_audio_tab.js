@@ -313,7 +313,13 @@ browser.tabs.onRemoved.addListener((tabId, removeInfo) => {
   AUDIBLE_TABS = AUDIBLE_TABS.filter((x) => {
     return x.id !== tabId;
   });
+
+  MUTED_TABS = MUTED_TABS.filter((x) => {
+    return x.id !== tabId;
+  });
+
   RECENT_TAB_IDS.delete(tabId);
+
   populateMenu();
 });
 

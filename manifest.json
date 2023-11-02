@@ -1,7 +1,7 @@
 {
     "manifest_version":2,
     "name":"Jump to Audible Tabs",
-    "version":"0.1.2",
+    "version":"0.2.0",
     "description":"Jump to tabs that are playing audio. Activate with the mouse right-click context menu.",
     "icons":{
         "48":"icons/Volume_Mute.svg",
@@ -18,5 +18,13 @@
             "jump_to_audio_tab.js"
         ],
         "persistent":true
+    },
+
+    "browser_action": {
+        "default_icon": {
+            "16": "icons/Volume_Mute.svg",
+            "32": "icons/Volume_Mute.svg",
+            "64": "icons/Volume_Mute.svg"
+        }
     }
 }

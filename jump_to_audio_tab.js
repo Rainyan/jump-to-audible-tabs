@@ -10,6 +10,45 @@ function errorLog() {
   console.error(arguments);
 }
 
+browser.browserAction.onClicked.addListener((tab, info) => {
+  let targetTabs = AUDIBLE_TABS.sort((a, b) => b.lastAccessed - a.lastAccessed);
+  if (targetTabs.length === 0) {
+    return;
+  }
+  let targetTabId = targetTabs[0].id;
+  console.assert(targetTabId !== -1);
+
+  browser.tabs.update(targetTabId, { active: true }).then(() => {
+    browser.tabs
+      .get(targetTabId)
+      .catch((e) => {
+        console.error(e);
+      })
+      .then((tab) => {
+        browser.windows
+          .getAll()
+          .catch((e) => {
+            console.error(e);
+          })
+          .then((windows) => {
+            for (const [_, wnd] of Object.entries(windows)) {
+              if (wnd.id === tab.windowId) {
+                browser.windows
+                  .update(wnd.id, {
+                    drawAttention: true,
+                    focused: true,
+                  })
+                  .catch((e) => {
+                    console.error(e);
+                  });
+                break;
+              }
+            }
+          });
+      });
+  });
+});
+
 browser.contextMenus.onClicked.addListener((info, tab) => {
   if (!info.menuItemId.startsWith(EXT_TAB_ID)) {
     return;

@@ -26,5 +26,13 @@
             "32": "icons/Volume_Mute.svg",
             "64": "icons/Volume_Mute.svg"
         }
+    },
+    "commands": {
+        "jump-to-latest-audible-tab": {
+            "suggested_key": {
+                "default": "Alt+J"
+            },
+            "description": "Jump to latest audible tab"
+        }
     }
 }

@@ -10,7 +10,7 @@ function errorLog() {
   console.error(arguments);
 }
 
-browser.browserAction.onClicked.addListener((tab, info) => {
+function jumpToLatestAudibleTab() {
   let targetTabs = AUDIBLE_TABS.sort((a, b) => b.lastAccessed - a.lastAccessed);
   if (targetTabs.length === 0) {
     return;
@@ -47,6 +47,16 @@ browser.browserAction.onClicked.addListener((tab, info) => {
           });
       });
   });
+}
+
+browser.commands.onCommand.addListener((command) => {
+  if (command === "jump-to-latest-audible-tab") {
+    jumpToLatestAudibleTab();
+  }
+});
+
+browser.browserAction.onClicked.addListener((tab, info) => {
+  jumpToLatestAudibleTab();
 });
 
 browser.contextMenus.onClicked.addListener((info, tab) => {

@@ -67,7 +67,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
     return;
   }
 
-  // "Mute all tabs audible tabs" functionality
+  // "Mute all audible tabs" functionality
   if (info.menuItemId === `${EXT_TAB_ID}muteall`) {
     for (const aTab of AUDIBLE_TABS) {
       browser.tabs

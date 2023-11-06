@@ -19,6 +19,9 @@ Firefox add-on. Quickly jump to a tab that is making noise. Convenient if you ha
 * [Currently unsupported](https://github.com/Rainyan/jump-to-audible-tabs/issues/1), but if you are a developer you may be able to load it manually by following [the dev docs](https://developer.chrome.com/docs/extensions/), and substituting Chromium specific calls with Polyfill.
 
 ## Usage
+### Hotkey
+The addon exposes a hotkey, `Alt+J` by default, for jumping to latest tab. Configure your addon hotkeys from within your browser's settings to modify this.
+
 ### Toolbar icon
 For Firefox, the main toolbar button is available from the *Extensions* button:
 

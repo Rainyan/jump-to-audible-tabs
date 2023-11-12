@@ -43,7 +43,7 @@ Right-click on any browser page or a tab (Firefox only), and choose the correspo
 The context menu only appears when there are tabs playing audio, and/or tabs that are muted.
 
 ## Licenses
-* The browser add-on code by <a href="https://github.com/Rainyan">Rain</a>, MIT License.
+* The browser add-on code by [Rain](https://github.com/Rainyan) and [contributors](https://github.com/Rainyan/jump-to-audible-tabs/graphs/contributors), MIT License.
 * Vectors and icons by <a href="https://github.com/ionic-team/ionicons?ref=svgrepo.com" target="_blank">Ionicons</a> in MIT License via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>.
   * Specifically using the "[Volume Mute Outline](https://www.svgrepo.com/svg/326454/volume-mute-outline)" icon, recolored.
 * Any includes of [Polyfill](https://github.com/mozilla/webextension-polyfill): used under [Mozilla Public License, v. 2.0](https://github.com/mozilla/webextension-polyfill/blob/master/LICENSE).

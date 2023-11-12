@@ -10,12 +10,25 @@ function errorLog() {
   console.error(arguments);
 }
 
-function jumpToLatestAudibleTab() {
-  let targetTabs = AUDIBLE_TABS.sort((a, b) => b.lastAccessed - a.lastAccessed);
-  if (targetTabs.length === 0) {
+function negativeMod(dividend, divisor) {
+  return ((dividend % divisor) + divisor) % divisor;
+}
+
+function jumpToRecentlyAudibleTab(currentTab, offset) {
+  if (AUDIBLE_TABS.length === 0) {
     return;
   }
-  let targetTabId = targetTabs[0].id;
+
+  var index = AUDIBLE_TABS.findIndex((a) => a.id === currentTab.id);
+  if (index === -1) {
+    index = offset < 0 ? 0 : AUDIBLE_TABS.length - 1;
+  } else {
+    index = negativeMod(index + offset, AUDIBLE_TABS.length);
+  }
+  console.assert(index >= 0);
+  console.assert(index < AUDIBLE_TABS.length);
+
+  let targetTabId = AUDIBLE_TABS[index].id;
   console.assert(targetTabId !== -1);
 
   browser.tabs.update(targetTabId, { active: true }).then(() => {
@@ -50,13 +63,26 @@ function jumpToLatestAudibleTab() {
 }
 
 browser.commands.onCommand.addListener((command) => {
-  if (command === "jump-to-latest-audible-tab") {
-    jumpToLatestAudibleTab();
+  let offsets = {
+    "jump-to-latest-audible-tab-next": 1,
+    "jump-to-latest-audible-tab-prev": -1,
+  };
+  if (command in offsets) {
+    browser.tabs
+      .query({ active: true, currentWindow: true })
+      .catch((e) => {
+        console.error(e);
+      })
+      .then((tabs) => {
+        if (tabs.length === 1) {
+          jumpToRecentlyAudibleTab(tabs[0], offsets[command]);
+        }
+      });
   }
 });
 
 browser.browserAction.onClicked.addListener((tab, info) => {
-  jumpToLatestAudibleTab();
+  jumpToRecentlyAudibleTab(tab, -1);
 });
 
 browser.contextMenus.onClicked.addListener((info, tab) => {

@@ -82,7 +82,7 @@ browser.commands.onCommand.addListener((command) => {
 });
 
 browser.browserAction.onClicked.addListener((tab, info) => {
-  jumpToLatestAudibleTab();
+  jumpToRecentlyAudibleTab(tab, -1);
 });
 
 browser.contextMenus.onClicked.addListener((info, tab) => {

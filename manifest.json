@@ -1,7 +1,7 @@
 {
     "manifest_version":2,
     "name":"Jump to Audible Tabs",
-    "version":"0.3.0",
+    "version":"0.4.0",
     "description":"Jump to tabs that are playing audio. Activate with the mouse right-click context menu.",
     "icons":{
         "48":"icons/Volume_Mute.svg",
@@ -28,11 +28,17 @@
         }
     },
     "commands": {
-        "jump-to-latest-audible-tab": {
+        "jump-to-latest-audible-tab-prev": {
             "suggested_key": {
                 "default": "Alt+J"
             },
-            "description": "Jump to latest audible tab"
+            "description": "Jump to a recently audible tab, from newest to oldest"
+        },
+		"jump-to-latest-audible-tab-next": {
+            "suggested_key": {
+                "default": "Shift+Alt+J"
+            },
+            "description": "Jump to a recently audible tab, from oldest to newest"
         }
     }
 }

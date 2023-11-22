@@ -2,7 +2,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 # Jump to Audible Tabs
-Firefox add-on. Quickly jump to a tab that is making noise. Convenient if you have many tabs/windows open.
+Web browser add-on. Quickly jump to a tab that is making noise. Convenient if you have many tabs/windows open.
 
 ## Features
 * Jump to a tab that is making noise
@@ -37,7 +37,7 @@ Pressing the button will cycle backwards through the recently audible tabs. You 
 ### Context menu
 For more control, the addon also offers a context menu with some additional options.
 
-Right-click on any browser page or a tab (Firefox only), and choose the corresponding action from the "Jump to Audible Tabs" context menu:
+Right-click on any browser page or a tab (tab menu is currently supported by Firefox only), and choose the corresponding action from the "Jump to Audible Tabs" context menu:
 
 ![Example image of the context menu](https://user-images.githubusercontent.com/6595066/234595280-1a239852-5c34-4db2-a8c3-8a4152e7c33f.png)
 

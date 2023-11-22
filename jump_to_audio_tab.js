@@ -240,51 +240,59 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
     }, errorLog);
 });
 
-function populateMenu() {
-  browser.contextMenus.removeAll().then(() => {
-    if (AUDIBLE_TABS.length === 0 && MUTED_TABS.length === 0) {
-      return;
-    }
-    browser.contextMenus.create({
-      id: `${EXT_TAB_ID}latest`,
-      title: "Jump to latest audible tab",
-      contexts: CONTEXTS,
-    });
-    browser.contextMenus.create({
-      id: `${EXT_TAB_ID}muteall`,
-      title: "Mute all audible tabs",
-      contexts: CONTEXTS,
-    });
-    browser.contextMenus.create({
-      id: `${EXT_TAB_ID}separator-1`,
-      type: "separator",
-      contexts: CONTEXTS,
-    });
+function onRemoveAllContextMenus() {
+  if (AUDIBLE_TABS.length === 0 && MUTED_TABS.length === 0) {
+    return;
+  }
+  browser.contextMenus.create({
+    id: `${EXT_TAB_ID}latest`,
+    title: "Jump to latest audible tab",
+    contexts: CONTEXTS,
+  });
+  browser.contextMenus.create({
+    id: `${EXT_TAB_ID}muteall`,
+    title: "Mute all audible tabs",
+    contexts: CONTEXTS,
+  });
+  browser.contextMenus.create({
+    id: `${EXT_TAB_ID}separator-1`,
+    type: "separator",
+    contexts: CONTEXTS,
+  });
 
-    for (const tab of AUDIBLE_TABS) {
+  for (const tab of AUDIBLE_TABS) {
+    browser.contextMenus.create({
+      id: `${EXT_TAB_ID}${tab.id}`,
+      title: `${tab.title} (${tab.url})`,
+      contexts: CONTEXTS,
+    });
+  }
+
+  if (MUTED_TABS.length > 0) {
+    browser.contextMenus.create({
+      id: `${EXT_TAB_ID}mutedtabs`,
+      title: "Muted tabs",
+      contexts: CONTEXTS,
+    });
+    for (const tab of MUTED_TABS) {
       browser.contextMenus.create({
         id: `${EXT_TAB_ID}${tab.id}`,
         title: `${tab.title} (${tab.url})`,
         contexts: CONTEXTS,
+        parentId: `${EXT_TAB_ID}mutedtabs`,
       });
     }
+  }
+}
 
-    if (MUTED_TABS.length > 0) {
-      browser.contextMenus.create({
-        id: `${EXT_TAB_ID}mutedtabs`,
-        title: "Muted tabs",
-        contexts: CONTEXTS,
-      });
-      for (const tab of MUTED_TABS) {
-        browser.contextMenus.create({
-          id: `${EXT_TAB_ID}${tab.id}`,
-          title: `${tab.title} (${tab.url})`,
-          contexts: CONTEXTS,
-          parentId: `${EXT_TAB_ID}mutedtabs`,
-        });
-      }
-    }
-  });
+function populateMenu() {
+  // Compatibility shim for Chromium, because Firefox/Polyfill behaviour
+  // differs here.
+  try {
+    chrome.contextMenus.removeAll(onRemoveAllContextMenus);
+  } catch (error) {
+    browser.contextMenus.removeAll(onRemoveAllContextMenus);
+  }
 }
 
 // As of writing this (2022/12), only Firefox supports the "tab" context,

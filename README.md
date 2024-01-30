@@ -1,4 +1,5 @@
 [![Download from AMO](https://img.shields.io/amo/v/jump-to-audible-tabs?style=flat-square)](https://addons.mozilla.org/en-US/firefox/addon/jump-to-audible-tabs/)
+[![Number of users](https://img.shields.io/amo/users/jump-to-audible-tabs?style=flat-square)](https://addons.mozilla.org/en-US/firefox/addon/jump-to-audible-tabs/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 # Jump to Audible Tabs

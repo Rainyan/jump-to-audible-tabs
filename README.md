@@ -44,6 +44,10 @@ Right-click on any browser page or a tab (the tab context menu is currently supp
 
 The context menu only appears when there are tabs playing audio, and/or tabs that are muted.
 
+## FAQ/Troubleshooting
+* The keyboard hotkey doesn't work from Reddit tabs!
+  * If you're using [RES](https://github.com/honestbleeps/Reddit-Enhancement-Suite), the default keyboard hotkeys might conflict each other. Consider rebinding either RES or this addon's hotkeys where relevant.
+
 ## Licenses
 Please see the [LICENSES.md](LICENSES.md) file.
 
